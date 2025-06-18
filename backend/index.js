@@ -1,6 +1,17 @@
 const express = require("express");
 const app = express();
 
+//Midlewares
+app.use(express.json());
+
+//Función generadora de IDs
+const generateId = () =>
+  Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+//Fecha de la tarea
+const date = new Date();
+const formatedDate = date.toISOString().substring(0, 10);
+
 let tasks = [
   {
     id: "0",
@@ -41,6 +52,35 @@ app.delete("/api/tasks/:id", (req, res) => {
   const id = req.params.id;
   tasks = tasks.filter((task) => task.id !== id);
   res.status(204).end();
+});
+
+// POST
+
+app.post("/api/tasks/", (req, res) => {
+  const body = req.body;
+
+  if (!body.title) {
+    return res.status(400).json({
+      error: "title missing",
+    });
+  }
+  if (!body.description) {
+    return res.status(400).json({
+      error: "description missing",
+    });
+  }
+
+  const task = {
+    id: generateId(),
+    title: body.title,
+    description: body.description,
+    completed: Boolean(body.completed) || false,
+    createdAt: formatedDate,
+  };
+
+  tasks = tasks.concat(task);
+
+  res.json(task);
 });
 
 const PORT = 3001;
