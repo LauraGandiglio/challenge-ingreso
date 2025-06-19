@@ -1,8 +1,11 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
 //Midlewares
 app.use(express.json());
+app.use(cors());
 
 //Función generadora de IDs
 const generateId = () =>
