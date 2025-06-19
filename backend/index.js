@@ -8,10 +8,6 @@ app.use(express.json());
 const generateId = () =>
   Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
 
-//Fecha de la tarea
-const date = new Date();
-const formatedDate = date.toISOString().substring(0, 10);
-
 let tasks = [
   {
     id: "0",
@@ -55,7 +51,6 @@ app.delete("/api/tasks/:id", (req, res) => {
 });
 
 // POST
-
 app.post("/api/tasks/", (req, res) => {
   const body = req.body;
 
@@ -75,11 +70,28 @@ app.post("/api/tasks/", (req, res) => {
     title: body.title,
     description: body.description,
     completed: Boolean(body.completed) || false,
-    createdAt: formatedDate,
+    createdAt: new Date().toISOString().substring(0, 10),
   };
 
   tasks = tasks.concat(task);
 
+  res.json(task);
+});
+
+// PUT
+app.put("/api/tasks/:id", (req, res) => {
+  const body = req.body;
+
+  const task = tasks.find((task) => task.id == req.params.id);
+
+  if (!task) {
+    return res.status(404).json({ error: "Tarea no encontrada" });
+  }
+
+  if (body.title !== undefined) task.title = body.title;
+  if (body.description !== undefined) task.description = body.description;
+  if (body.completed !== undefined) task.completed = body.completed;
+  task.createdAt = new Date().toISOString().substring(0, 10);
   res.json(task);
 });
 
