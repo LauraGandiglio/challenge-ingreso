@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TaskList from "./components/TaskList";
+import Nav from "./components/Nav";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -17,8 +20,11 @@ function App() {
     <>
       <div>
         <h1>Lista de tareas</h1>
-
-        <TaskList taskList={taskList} />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<TaskList taskList={taskList} />} />
+          <Route path="/form" element={<p>Formulario</p>} />
+        </Routes>
       </div>
       <div></div>
     </>
