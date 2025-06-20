@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+import TaskList from "./components/TaskList";
+
 function App() {
   const [taskList, setTaskList] = useState([]);
 
@@ -15,11 +17,8 @@ function App() {
     <>
       <div>
         <h1>Lista de tareas</h1>
-        <div>
-          {taskList.map((task) => (
-            <p key={task.id}>{task.title}</p>
-          ))}
-        </div>
+
+        <TaskList taskList={taskList} />
       </div>
       <div></div>
     </>
