@@ -5,6 +5,7 @@ const TaskForm = ({ setTaskList }) => {
   const [description, setDescription] = useState("");
   const [notificationForm, setNotificationForm] = useState("");
 
+  //Maneja el evento de envío del formulario
   const handleTaskForm = (event) => {
     event.preventDefault();
 
@@ -25,7 +26,7 @@ const TaskForm = ({ setTaskList }) => {
         return res.json();
       })
       .then((data) => {
-        setTaskList((prevList) => [...prevList, data]);
+        setTaskList((prevTasks) => [...prevTasks, data]);
         setTitle("");
         setDescription("");
         setNotificationForm(`Tarea "${title}" agregada exitosamente.`);

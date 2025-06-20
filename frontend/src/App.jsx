@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 function App() {
   const [taskList, setTaskList] = useState([]);
 
+  //Pide todas las notas y las guarda en taskList
   useEffect(() => {
     fetch("http://localhost:3001/api/tasks")
       .then((res) => res.json())
@@ -23,7 +24,10 @@ function App() {
         <h1>Lista de tareas</h1>
         <Nav />
         <Routes>
-          <Route path="/" element={<TaskList taskList={taskList} />} />
+          <Route
+            path="/"
+            element={<TaskList taskList={taskList} setTaskList={setTaskList} />}
+          />
           <Route
             path="/form"
             element={<TaskForm setTaskList={setTaskList} />}
