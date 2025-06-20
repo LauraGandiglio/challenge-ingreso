@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
 import Nav from "./components/Nav";
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<TaskList taskList={taskList} />} />
-          <Route path="/form" element={<p>Formulario</p>} />
+          <Route
+            path="/form"
+            element={<TaskForm setTaskList={setTaskList} />}
+          />
         </Routes>
       </div>
       <div></div>
