@@ -1,0 +1,64 @@
+.taskForm-container{
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    padding:15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    text-align: start;
+}
+
+.taskForm-container input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid var(--color-primario);
+    transition: box-shadow 0.5s;
+    -webkit-transition: box-shadow 0.5s;
+    -moz-transition: box-shadow 0.5s;
+}
+
+.taskForm-container input:focus{
+    outline: none;
+    box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+    -webkit-box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+    -moz-box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+}
+
+.taskForm-container button {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+    padding: 1em;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.taskForm-container button:hover {
+    background-color: #542d86;
+}
+
+.taskForm-container_notificationError{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    color: #ca5656;
+    font-size: 15px;
+    gap: 5px; 
+    width: 100%;
+}
+
+.taskForm-container_notificationSend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    color: #6eb48b;
+    font-size: 15px;
+    gap: 5px; 
+    width: 100%;
+}

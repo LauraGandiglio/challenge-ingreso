@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+import "../styles/TaskForm.css";
+
+import { FaCheckCircle } from "react-icons/fa";
+import { FaCircleXmark } from "react-icons/fa6";
+
 const TaskForm = ({ setTaskList }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -29,7 +34,7 @@ const TaskForm = ({ setTaskList }) => {
         setTaskList((prevTasks) => [...prevTasks, data]);
         setTitle("");
         setDescription("");
-        setNotificationForm(`Tarea "${title}" agregada exitosamente.`);
+        setNotificationForm(`Tarea agregada exitosamente.`);
         setTimeout(() => {
           setNotificationForm("");
         }, 2500);
@@ -37,33 +42,48 @@ const TaskForm = ({ setTaskList }) => {
       .catch((error) => {
         console.error(error);
         setNotificationForm("Ocurrió un error al agregar la tarea.");
+        setTimeout(() => {
+          setNotificationForm("");
+        }, 2500);
       });
   };
 
   return (
     <>
-      <form onSubmit={handleTaskForm}>
-        <div>
-          <input
-            type="text"
-            placeholder="Escribe el título de la tarea aquí"
-            value={title}
-            name="title"
-            onChange={({ target }) => setTitle(target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Describe la tarea aquí"
-            value={description}
-            name="description"
-            onChange={({ target }) => setDescription(target.value)}
-          />
-        </div>
-        <button type="submit">Agregar tarea</button>
+      <form className="taskForm-container" onSubmit={handleTaskForm}>
+        <p>Título</p>
+        <input
+          type="text"
+          placeholder="Escribe el título de la tarea aquí"
+          value={title}
+          name="title"
+          onChange={({ target }) => setTitle(target.value)}
+        />
+
+        <p>Descripción</p>
+        <input
+          type="text"
+          placeholder="Describe la tarea aquí"
+          value={description}
+          name="description"
+          onChange={({ target }) => setDescription(target.value)}
+        />
+
+        <button className="taskForm-container_button" type="submit">
+          Agregar tarea
+        </button>
+        {notificationForm == "Ocurrió un error al agregar la tarea." ? (
+          <p className="taskForm-container_notificationError">
+            <FaCircleXmark />
+            {notificationForm}
+          </p>
+        ) : notificationForm !== "" ? (
+          <p className="taskForm-container_notificationSend">
+            <FaCheckCircle />
+            {notificationForm}
+          </p>
+        ) : null}
       </form>
-      <p>{notificationForm}</p>
     </>
   );
 };

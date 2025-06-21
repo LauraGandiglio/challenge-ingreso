@@ -1,6 +1,7 @@
-.task-container {
+.task-container ,.taskItemForm-container {
     display: flex;
     width: 85%;
+    height: fit-content;
     flex-direction: column;
     background-color: var(--color-secundario);
     padding:15px;
@@ -13,6 +14,9 @@
 
 .task-container h3 {
     margin: 0 0 10px 0;
+    word-wrap: break-word;     
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .task-container_buttons{
@@ -26,10 +30,11 @@
 .task-container_buttons button {
     background-color: var(--color-primario);
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 100%;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
     font-family: inherit;
     cursor: pointer;
     transition: background-color 0.25s;
@@ -40,6 +45,9 @@
 
 .task-container p {
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .tarea-completada {
@@ -58,4 +66,42 @@
 
 .task-container_buttons button:hover {
     background-color: #542d86;
+}
+
+.taskItemForm-container button {
+    width: min-content;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5em 1em;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.taskItemForm-container button:hover {
+    background-color: #542d86;
+}
+
+.taskItemForm-container input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid var(--color-primario);
+    transition: box-shadow 0.5s;
+    -webkit-transition: box-shadow 0.5s;
+    -moz-transition: box-shadow 0.5s;
+}
+
+.taskItemForm-container input:focus{
+    outline: none;
+    box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+    -webkit-box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+    -moz-box-shadow: 0px 7px 7px -6px rgba(160,103,234,0.5);
+}
+
+.taskItemForm-container p {
+    color: var(--color-primario);
+    font-weight: 500;
 }

@@ -75,12 +75,14 @@ const TaskItem = ({ task, setTaskList }) => {
   return (
     <>
       {isEditing ? (
-        <div>
+        <div className="taskItemForm-container">
+          <p>Título</p>
           <input
             type="text"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
           />
+          <p>Descripción</p>
           <input
             type="text"
             value={editedDescription}
