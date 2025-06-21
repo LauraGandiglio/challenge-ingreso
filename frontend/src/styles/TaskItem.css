@@ -1,0 +1,61 @@
+.task-container {
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    background-color: var(--color-secundario);
+    padding:15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 5px -4px rgba(0, 0, 0, 0.288);
+    -webkit-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+    -moz-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+}
+
+.task-container h3 {
+    margin: 0 0 10px 0;
+}
+
+.task-container_buttons{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.task-container_buttons button {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    box-shadow: 4px 4px 5px -4px rgba(0, 0, 0, 0.288);
+    -webkit-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+    -moz-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+}
+
+.task-container p {
+    margin: 0;
+}
+
+.tarea-completada {
+    color: #6eb48b;
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.tarea-pendiente {
+    color: #ca5656;
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.task-container_buttons button:hover {
+    background-color: #542d86;
+}

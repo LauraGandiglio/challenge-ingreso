@@ -1,0 +1,30 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.nav a {
+    text-decoration: none;
+    background-color: #fff;
+    margin: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5em 1em;
+    width: 60%;
+    
+    transition: background-color 1s;
+    box-shadow: 4px 4px 5px -4px rgba(0, 0, 0, 0.288);
+    -webkit-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+    -moz-box-shadow: 4px 4px 5px -4px rgba(0,0,0,0.288);
+}
+
+.nav a:hover {
+    background-color: #E3D5F0;
+}
+
+.nav a:focus {
+    color: var(--color-primario);
+}

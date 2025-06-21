@@ -1,0 +1,42 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+}
+
+.header-container{
+    display: flex;
+    width: 100%;
+    min-height: 180px;
+    align-items: center;
+    background-color: var(--color-primario);
+    border-radius: 0 0 0 40px;
+    
+}
+
+.header-container_item{
+    flex: 1;
+    
+}
+
+h1{
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: "Caveat", cursive;
+}
+
+
+span a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+
+.tasks-container{
+    height: 100%;
+    border-radius: 45px 0 0 0; 
+}

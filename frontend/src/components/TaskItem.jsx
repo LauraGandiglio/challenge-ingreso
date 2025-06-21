@@ -1,4 +1,12 @@
 import { useState } from "react";
+import "../styles/TaskItem.css";
+
+import {
+  FaTrashAlt,
+  FaPen,
+  FaCalendarTimes,
+  FaCalendarCheck,
+} from "react-icons/fa";
 
 const TaskItem = ({ task, setTaskList }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -81,15 +89,25 @@ const TaskItem = ({ task, setTaskList }) => {
           <button onClick={handleEdit}>Guardar</button>
         </div>
       ) : (
-        <div>
+        <div className="task-container">
           <h3>{task.title}</h3>
           <p>{task.description}</p>
-          {task.completed ? <p>Tarea completada</p> : <p>Tarea pendiente</p>}
-          <button onClick={() => handleDelete(task.id)}>Eliminar</button>
-          <button onClick={() => setIsEditing(!isEditing)}>Editar</button>
-          <button onClick={toggleState}>
-            {task.completed ? "Marcar incompleta" : "Marcar completa"}
-          </button>
+          {task.completed ? (
+            <p className="tarea-completada">Tarea completada</p>
+          ) : (
+            <p className="tarea-pendiente">Tarea pendiente</p>
+          )}
+          <div className="task-container_buttons">
+            <button onClick={toggleState}>
+              {task.completed ? <FaCalendarTimes /> : <FaCalendarCheck />}
+            </button>
+            <button onClick={() => setIsEditing(!isEditing)}>
+              <FaPen />
+            </button>
+            <button onClick={() => handleDelete(task.id)}>
+              <FaTrashAlt />
+            </button>
+          </div>
         </div>
       )}
     </>
