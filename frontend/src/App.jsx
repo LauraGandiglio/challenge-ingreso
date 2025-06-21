@@ -10,9 +10,11 @@ import Nav from "./components/Nav";
 function App() {
   const [taskList, setTaskList] = useState([]);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //Pide todas las notas y las guarda en taskList
   useEffect(() => {
-    fetch("http://localhost:3001/api/tasks")
+    fetch(`${apiUrl}/api/tasks`)
       .then((res) => res.json())
       .then((data) => setTaskList(data))
       .catch((error) => console.error("Error al cargar tareas:", error));

@@ -13,9 +13,11 @@ const TaskItem = ({ task, setTaskList }) => {
   const [editedTitle, setEditedTitle] = useState(task.title);
   const [editedDescription, setEditedDescription] = useState(task.description);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //Maneja el evento del click al botón de eliminar tarea
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/api/tasks/${id}`, {
+    fetch(`${apiUrl}/api/tasks/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -33,7 +35,7 @@ const TaskItem = ({ task, setTaskList }) => {
       description: editedDescription,
     };
 
-    fetch(`http://localhost:3001/api/tasks/${task.id}`, {
+    fetch(`${apiUrl}/api/tasks/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +58,7 @@ const TaskItem = ({ task, setTaskList }) => {
       ...task,
       completed: !task.completed,
     };
-    fetch(`http://localhost:3001/api/tasks/${task.id}`, {
+    fetch(`${apiUrl}/api/tasks/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

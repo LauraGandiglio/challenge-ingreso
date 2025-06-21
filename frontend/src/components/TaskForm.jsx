@@ -10,6 +10,8 @@ const TaskForm = ({ setTaskList }) => {
   const [description, setDescription] = useState("");
   const [notificationForm, setNotificationForm] = useState("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //Maneja el evento de envío del formulario
   const handleTaskForm = (event) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ const TaskForm = ({ setTaskList }) => {
       description: description,
     };
 
-    fetch("http://localhost:3001/api/tasks", {
+    fetch(`${apiUrl}/api/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
