@@ -15,15 +15,15 @@ const generateId = () =>
 let tasks = [
   {
     id: "0",
-    title: "Barrer",
-    description: "Barrer el comedor",
+    title: "Revisar diseño del formulario",
+    description: "Verificar consistencia de estilos y responsividad en mobile.",
     completed: false,
     createdAt: "Poner Fecha",
   },
   {
     id: "1",
-    title: "Doblar ropa",
-    description: "Doblar la ropa de la silla",
+    title: "Ordenar el cuarto",
+    description: "Doblar la ropa de la silla, limpiar pisos y guardar libros.",
     completed: true,
     createdAt: "Poner Fecha",
   },
